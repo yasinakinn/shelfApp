@@ -14,8 +14,11 @@ export class CanLoginService implements CanLoad{
   ) { }
   canLoad(route: Route, segments: UrlSegment[]): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
     return this.userService.isLoggedIn().then((response: any) => {
+      console.log(response);
+      
       if(response) {
-        this.router.navigate(['/home']);
+        this.router.navigate(['/shelves']);
+        this.userService.loginEvent('login');
         return false;
       }else {
         return true;

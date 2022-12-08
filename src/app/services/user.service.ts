@@ -46,6 +46,10 @@ export class UserService {
     await this.storage.set('user', user);
   }
 
+  async getUser() {
+    return await this.storage.get('user');
+  }
+
   async loginEvent(data: any) {
     this.onLogin.next(data);
   }

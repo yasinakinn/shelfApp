@@ -10,17 +10,21 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule),
+    loadChildren: () => import('./pages/login/login.module').then(m => m.LoginPageModule),
     canLoad: [CanLoginService]
   },
   {
-    path: 'home',
-    loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
+    path: 'shelves',
+    loadChildren: () => import('./pages/shelves/shelves.module').then(m => m.ShelvesPageModule)
   },
   {
-    path:'**',
+    path: 'profile',
+    loadChildren: () => import('./pages/profile/profile.module').then(m => m.ProfilePageModule)
+  },
+  {
+    path: '**',
     redirectTo: 'login'
-  }
+  },
 ];
 
 @NgModule({
@@ -29,4 +33,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

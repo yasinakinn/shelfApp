@@ -9,12 +9,16 @@ import { UserService } from './services/user.service';
 })
 export class AppComponent {
   public appPages = [
-    { title: 'Inbox', url: '/folder/Inbox', icon: 'mail' },
-    { title: 'Outbox', url: '/folder/Outbox', icon: 'paper-plane' },
-    { title: 'Favorites', url: '/folder/Favorites', icon: 'heart' },
-    { title: 'Archived', url: '/folder/Archived', icon: 'archive' },
-    { title: 'Trash', url: '/folder/Trash', icon: 'trash' },
-    { title: 'Spam', url: '/folder/Spam', icon: 'warning' },
+    {
+      title: 'Shelves',
+      url: '/shelves',
+      icon: 'book'
+    },
+    {
+      title: 'Profile',
+      url: '/profile',
+      icon: 'person'
+    },
   ];
 
   login = false;
@@ -23,12 +27,20 @@ export class AppComponent {
     public router: Router,
     private userService: UserService,
   ) {
-
   }
 
-  async ngOnInit() {
+  async ngOnInit() {    
+    this.userService.isLoggedIn().then((response: any) => {
+      if (response) {
+        this.login = true;
+      } else {
+        this.login = false;
+      }
+    });
     this.userService.getLoginEvent().then((response: any) => {
       response.subscribe((data: any) => {
+        console.log(data);
+        
         if (data === 'login') {
           this.login = true;
         } else {

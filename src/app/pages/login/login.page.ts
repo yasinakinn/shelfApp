@@ -41,8 +41,9 @@ export class LoginPage implements OnInit {
   login() {
     this.userService.login(this.credentials.value.email, this.credentials.value.password).then((response: any) => {
       if(response.status === "success") {
+        response.user.password = this.credentials.value.password;
         this.userService.setUser(response.user);
-        this.router.navigate(['/home']);
+        this.router.navigate(['/shelves']);
         console.log(response.user.title, 'logged in');
         this.userService.loginEvent('login');
       }else {
