@@ -1,0 +1,7 @@
+{
+  "name": "shelfApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
