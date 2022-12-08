@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { UserService } from './services/user.service';
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -13,6 +16,34 @@ export class AppComponent {
     { title: 'Trash', url: '/folder/Trash', icon: 'trash' },
     { title: 'Spam', url: '/folder/Spam', icon: 'warning' },
   ];
-  public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
-  constructor() {}
+
+  login = false;
+
+  constructor(
+    public router: Router,
+    private userService: UserService,
+  ) {
+
+  }
+
+  async ngOnInit() {
+    this.userService.getLoginEvent().then((response: any) => {
+      response.subscribe((data: any) => {
+        if (data === 'login') {
+          this.login = true;
+        } else {
+          this.login = false;
+        }
+      }
+      );
+    }
+    );
+  }
+
+  //logout
+  async logout() {
+    this.login = false;
+    await this.userService.logout();
+    this.router.navigate(['/login']);
+  }
 }

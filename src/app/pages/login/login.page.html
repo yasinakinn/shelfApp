@@ -1,0 +1,34 @@
+<ion-content [fullscreen]="true" [forceOverscroll]="false" color="light">
+  <div class="main-container">
+    <img src="assets/imgs/logo.png">
+  </div>
+
+  <div class="login-container">
+
+    <ion-card>
+      <ion-card-content>
+        <form (ngSubmit)="login()" [formGroup]="credentials">
+          <ion-item>
+            <ion-icon slot="start" color="primary" name="person"></ion-icon>
+            <input type="email" formControlName="email" inputmode="email" class="input" placeholder="E-mail">
+          </ion-item>
+
+
+
+          <ion-item>
+            <ion-icon slot="start" color="primary" name="lock-closed"></ion-icon>
+            <input inputmode="text" formControlName="password" class="input" [type]="showPwd ? 'text' : 'password'"
+              placeholder="Şifre">
+            <ion-icon class="showHidePwd" slot="end" [name]="pwdIcon" (click)="togglePwd()"></ion-icon>
+          </ion-item>
+
+
+          <button type="submit" class="btn">Giriş Yap</button>
+        </form>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+
+
+</ion-content>
