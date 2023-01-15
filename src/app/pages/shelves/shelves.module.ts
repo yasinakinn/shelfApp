@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -15,6 +15,7 @@ import { ShelvesPage } from './shelves.page';
     IonicModule,
     ShelvesPageRoutingModule
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   declarations: [ShelvesPage]
 })
 export class ShelvesPageModule {}

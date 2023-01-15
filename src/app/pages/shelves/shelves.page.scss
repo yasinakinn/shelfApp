@@ -1,0 +1,63 @@
+ion-title{
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+.title_shelves_table{
+
+    vertical-align: bottom;
+    border-bottom: 2px solid #dee2e6;
+    padding: 0.75rem 0;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+    h3{
+        font-size: 1rem;
+        line-height: 1.2;
+        text-align: left;
+        font-weight: bold;
+    }
+}
+
+.shelves_table{
+    border-bottom: 1px solid #808080;
+    color: var(--ion-color-dark, #808080);
+}
+ion-card-content{
+    h1{
+        font-size: 1.8rem;
+        line-height: 2;
+        text-align: left;
+        font-weight: bold;
+        color: var(--ion-card-color, var(--ion-item-color, var(--ion-color-step-600, #666666)))
+    }
+    p{
+        font-size: 1.2rem;
+        line-height: 1.4;
+        text-align: left;
+        font-weight: bold;
+        color: var(--ion-card-color, var(--ion-item-color, var(--ion-color-step-600, #666666)))
+    }
+}
+ion-card-title{
+    text-align: center;
+    padding-bottom: 2rem;
+}
+
+
+ion-toolbar{
+    --background: transparent;
+}
+
+.notifications_card{
+    ion-card-content{
+        height: 100%!important;
+    }
+    ion-chip{
+        width: 100%;
+        padding: 40px 0;
+    }
+    ion-item{
+        width: 100%;
+        --background: transparent;
+    }
+}

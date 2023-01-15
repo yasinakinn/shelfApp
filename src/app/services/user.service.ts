@@ -22,6 +22,8 @@ export class UserService {
     }
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+    // 	Access-Control-Allow-Origin
+    myHeaders.append("Access-Control-Allow-Origin", "*");
 
     let url = this.baseURL + 'user/login';
     return await fetch(url, {
