@@ -1,9 +1,55 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>add</ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content>
+<ion-content [fullscreen]="true">
 
+  <ion-header collapse="condense" class="ion-margin">
+    <ion-toolbar>
+      <ion-title color="primary" size="large">Shelf</ion-title>
+      <ion-buttons slot="end">
+        <ion-button (click)="closeModal()">
+          <ion-icon name="close"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-card>
+    <ion-row>
+      <ion-col size="12">
+        <ion-item lines="none">
+          <ion-label position="fixed">Number</ion-label>
+          <ion-input [(ngModel)]="shelf.number" placeholder="Enter shelf number" type="number"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col size="12">
+        <ion-item lines="none">
+          <ion-label position="fixed">Name</ion-label>
+          <ion-input [(ngModel)]="shelf.name" placeholder="Enter shelf name"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <ion-item lines="none">
+          <ion-label position="fixed">Type</ion-label>
+          <ion-input [(ngModel)]="shelf.type" placeholder="Enter type of shelf name"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <ion-item lines="none">
+          <ion-label position="fixed">Qty</ion-label>
+          <ion-input [(ngModel)]="shelf.qty" placeholder="Enter Quantity" type="number"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <ion-button expand="block" fill="outline" (click)="shelfOperation()">Save</ion-button>
+      </ion-col>
+      <ion-col size="12">
+        <ion-button expand="block" fill="outline" color="danger" *ngIf="toUpdate" (click)="deleteShelf()">Delete</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-card>
 </ion-content>

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
 import { DataService } from 'src/app/services/data.service';
 import { UserService } from 'src/app/services/user.service';
+import { AddPage } from './add/add.page';
 
 @Component({
   selector: 'app-shelves',
@@ -10,9 +12,9 @@ import { UserService } from 'src/app/services/user.service';
 export class ShelvesPage implements OnInit {
 
   summary = [
-    { name: 'Shelves', value: 0, icon: 'bookmarks', color: 'primary' },
+    { name: 'Shelves', value: 0, icon: 'bookmarks', color: 'secondary' },
     { name: 'Item Quantity', value: 0, icon: 'cube', color: 'secondary' },
-    { name: 'Users', value: 0, icon: 'people', color: 'tertiary' }
+    { name: 'Random Quote', value: "..", icon: 'newspaper-outline', color: 'secondary' }
   ];
   filters = [
     { name: 'All', value: 'all', icon: 'bookmarks', color: 'primary' },
@@ -35,19 +37,21 @@ export class ShelvesPage implements OnInit {
   skeleton: boolean = true;
   constructor(
     public dataService: DataService,
-    public userService: UserService
+    public userService: UserService,
+    private modalCtrl: ModalController,
   ) { }
 
   async ngOnInit() {
     await this.userService.getUser().then(async (user: any) => {
       this.user = user;
       await this.getData();
-
+      await this.getQuote();
 
     });
   }
 
   async getData() {
+    this.results = [];
     this.dataService.post('shelves', this.user).subscribe((shelves: any) => {
       this.shelves = shelves;
       this.summary[0].value = this.shelves.length;
@@ -118,6 +122,47 @@ export class ShelvesPage implements OnInit {
     }
     );
 
+  }
+
+  openAddShelf() {
+    this.modalCtrl.create({
+      component: AddPage,
+      componentProps: {
+        user: this.user
+      }
+    }).then((modal: any) => {
+      modal.present();
+      modal.onDidDismiss().then((data: any) => {
+        if (data.data) {
+          this.getData();
+        }
+      });
+    });
+  }
+
+  openUpdateShelf(shelf: any) {
+    this.modalCtrl.create({
+      component: AddPage,
+      componentProps: {
+        user: this.user,
+        toUpdate: shelf
+      }
+    }).then((modal: any) => {
+      modal.present();
+      modal.onDidDismiss().then((data: any) => {
+        if (data.data) {
+          this.getData();
+        }
+      });
+    });
+  }
+
+  async getQuote(){
+    this.dataService.get('https://zenquotes.io/api/random','GET').subscribe((quote: any) => {
+      this.summary[2].value = quote[0].q;
+    }, (error: any) => {
+      console.log(error);
+    });
   }
 
 }

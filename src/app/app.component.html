@@ -1,63 +1,61 @@
 <ion-app>
-  <ion-split-pane contentId="main-content">
-    <ion-menu contentId="main-content" type="overlay" disabled="{{!login}}">
-      <ion-content>
-        <div class="menu-header-bg">
-        </div>
-        <div class="menu-header-bg1">
-        </div>
-        <div class="menu-header-bg2">
+  <ion-menu contentId="main-content" type="push">
+    <ion-content>
+      <div class="menu-header-bg">
+      </div>
+      <div class="menu-header-bg1">
+      </div>
+      <div class="menu-header-bg2">
 
-        </div>
-        <div class="header-content">
-          <ion-card>
-            <ion-card-content>
-              <ion-item lines="none">
-                <ion-icon name="person" slot="start"></ion-icon>
-                <ion-label class="ion-text-wrap">
-                  <h2 class="ion-text-wrap">Ys</h2>
-                  <p class="ion-text-wrap">
-                 t
-                  </p>
-                </ion-label>
-              </ion-item>
-            </ion-card-content>
-          </ion-card>
-          <img src="assets/imgs/search.svg">
-        </div>
-
-        <ion-list>
-          <ion-list-header class="ion-margin-bottom">Welcome</ion-list-header>
-          <ion-menu-toggle auto-hide="false">
-            <ion-list-header class="ion-margin-bottom">Shelves</ion-list-header>
-            <ion-item [routerLink]="['/shelves']" routerLinkActive="selected" lines="none">
-              <ion-icon slot="start" name="albums-outline"></ion-icon>
-              <ion-label>Shelves</ion-label>
+      </div>
+      <div class="header-content">
+        <ion-card>
+          <ion-card-content>
+            <ion-item lines="none">
+              <ion-icon name="person" slot="start"></ion-icon>
+              <ion-label class="ion-text-wrap">
+                <h2 class="ion-text-wrap">Ys</h2>
+                <p class="ion-text-wrap">
+               t
+                </p>
+              </ion-label>
             </ion-item>
-          </ion-menu-toggle>
+          </ion-card-content>
+        </ion-card>
+        <img src="assets/imgs/search.svg">
+      </div>
+
+      <ion-list>
+        <ion-list-header class="ion-margin-bottom">Welcome</ion-list-header>
+        <ion-menu-toggle auto-hide="false">
+          <ion-list-header class="ion-margin-bottom">Shelves</ion-list-header>
+          <ion-item [routerLink]="['/shelves']" routerLinkActive="selected" lines="none">
+            <ion-icon slot="start" name="albums-outline"></ion-icon>
+            <ion-label>Shelves</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
 
 
 
 
-          <ion-list-header class="ion-margin-bottom">Settings</ion-list-header>
+        <ion-list-header class="ion-margin-bottom">Settings</ion-list-header>
 
-          <ion-menu-toggle auto-hide="false">
-            <ion-item [routerLink]="['/profile']" lines="none" detail="false"  routerLinkActive="selected">
-              <ion-icon slot="start" name="create"></ion-icon>
-              <ion-label>Profile</ion-label>
-            </ion-item>
-          </ion-menu-toggle>
+        <ion-menu-toggle auto-hide="false">
+          <ion-item [routerLink]="['/profile']" lines="none" detail="false"  routerLinkActive="selected">
+            <ion-icon slot="start" name="create"></ion-icon>
+            <ion-label>Profile</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
 
 
-          <ion-menu-toggle auto-hide="false">
-            <ion-item [routerLink]="['/login']" (click)="logout()" lines="none" detail="false" routerLinkActive="selected">
-              <ion-icon slot="start" name="exit"></ion-icon>
-              <ion-label>Logout</ion-label>
-            </ion-item>
-          </ion-menu-toggle>
-        </ion-list>
-      </ion-content>
-    </ion-menu>
-    <ion-router-outlet id="main-content"></ion-router-outlet>
-  </ion-split-pane>
+        <ion-menu-toggle auto-hide="false">
+          <ion-item [routerLink]="['/login']" (click)="logout()" lines="none" detail="false" routerLinkActive="selected">
+            <ion-icon slot="start" name="exit"></ion-icon>
+            <ion-label>Logout</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  <ion-router-outlet id="main-content"></ion-router-outlet>
 </ion-app>

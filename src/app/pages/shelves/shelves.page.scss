@@ -8,39 +8,40 @@ ion-title{
     vertical-align: bottom;
     border-bottom: 2px solid #dee2e6;
     padding: 0.75rem 0;
-    vertical-align: top;
     border-top: 1px solid #dee2e6;
     h3{
         font-size: 1rem;
         line-height: 1.2;
-        text-align: left;
-        font-weight: bold;
+        font-weight: 500;
     }
 }
 
 .shelves_table{
-    border-bottom: 1px solid #808080;
-    color: var(--ion-color-dark, #808080);
+    border-bottom: 1px solid #dee2e6;
+    color: var(--ion-color-dark, #dee2e6);
 }
 ion-card-content{
     h1{
-        font-size: 1.8rem;
-        line-height: 2;
+        font-size: 1.6rem;
+        line-height: 1.8;
         text-align: left;
-        font-weight: bold;
+        font-weight: 600;
         color: var(--ion-card-color, var(--ion-item-color, var(--ion-color-step-600, #666666)))
     }
     p{
-        font-size: 1.2rem;
-        line-height: 1.4;
+        font-size: 1rem;
+        line-height: 1.2;
         text-align: left;
-        font-weight: bold;
-        color: var(--ion-card-color, var(--ion-item-color, var(--ion-color-step-600, #666666)))
+        font-weight: 500;
+        color: var(--ion-card-color, var(--ion-item-color, var(--ion-color-step-600, #666666)));
+        blockquote{
+            border-left: 5px solid #dee2e6;
+        }
     }
 }
 ion-card-title{
     text-align: center;
-    padding-bottom: 2rem;
+    padding-bottom: 1rem;
 }
 
 
@@ -61,3 +62,4 @@ ion-toolbar{
         --background: transparent;
     }
 }
+
